@@ -21,9 +21,9 @@ public class Parser {
     private static final Pattern PATTERN = Pattern.compile("([a-zA-Z0-9.'-]+)|!?\\w+|<(.*?)>");
     private static final Pattern LEVEL_PATTERN = Pattern.compile("^\\w*l[0-9]+");
     private static final Pattern ONLY_NUMBERS = Pattern.compile("[0-9]+");
-    private static final Pattern CP_PATTERN = Pattern.compile("(cp[0-9]+)|([0-9]+cp)");
+    private static final Pattern CP_PATTERN = Pattern.compile("(wp[0-9]+)|([0-9]+wp)");
     private static final Pattern IV_PATTERN = Pattern.compile("iv[0-9]+|([0-9]+iv)|[0-9]+");
-    private static final Pattern EGG_PATTERN = Pattern.compile("egg[1-5]");
+    private static final Pattern EGG_PATTERN = Pattern.compile("ei[1-5]");
 
 
     private final NovaBot novaBot;

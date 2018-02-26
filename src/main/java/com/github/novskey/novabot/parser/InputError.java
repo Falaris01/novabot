@@ -16,22 +16,22 @@ public enum InputError
     public String getErrorMessage(final UserCommand userCommand) {
         switch (this) {
             case InvalidArg: {
-                String                 str      = "That command can only accept ";
+                String                 str      = "Dieser Befehl akzeptiert nur ";
                 final HashSet<ArgType> argTypes = userCommand.novaBot.commands.get((String) userCommand.getArg(0).getParams()[0]).validArgTypes;
                 str = str + ArgType.setToString(argTypes) + "";
                 return str;
             }
             case BlacklistedPokemon: {
-                StringBuilder str = new StringBuilder("One or more pokemon you entered have been blacklisted by the server owner: \n\n");
+                StringBuilder str = new StringBuilder("Eines oder mehr Pokemon die du eingeben hast stehen auf der Blacklist\n\n");
                 for (final String s : userCommand.getBlacklisted()) {
                     str.append("  ").append(s).append("\n");
                 }
                 return str.toString();
             }
             case InvalidArgCombination: {
-                StringBuilder str = new StringBuilder("You entered an invalid argument combination for that command. Try `!help ")
+                StringBuilder str = new StringBuilder("Du hast eine falsche Eingabenkombination für diesen Befehl getätigt. Siehe `!help ")
                         .append(((String)userCommand.getArg(ArgType.CommandStr).getParams()[0]).substring(1))
-                        .append("` to see all valid combinations.");
+                        .append("` um alle möglichen Kombinationen zu sehen");
                 return str.toString();
             }
             case DuplicateArgs: {
@@ -41,21 +41,21 @@ public enum InputError
                     return str;
                 }
                 if (duplicateType == ArgType.CommandStr) {
-                    return str + "s. Please enter your commands one at a time in separate messages.";
+                    return str + "s. Bitte gebe deine Befehle in verschiedenen Nachrichten ein.";
                 }
                 if (duplicateType == ArgType.Locations) {
                     str += "s";
                 }
 
-                str += " without putting them in a list.";
-                str = str + " If you want to specify multiple " + duplicateType + ((duplicateType != ArgType.Pokemon) ? "s" : "") + ", please put them in a list like so:\n\n";
+                str += " ohne sie in einer Liste zu haben.";
+                str = str + " Wenn du mehrere eingeben möchtest " + duplicateType + ((duplicateType != ArgType.Pokemon) ? "s" : "") + ", bitte in einer Liste eingeben wie z. B:\n\n";
                 assert duplicateType != null;
                 switch (duplicateType) {
                     case Pokemon:
-                        str += "`!addpokemon <dragonite,lapras,unown>`";
+                        str += "`!addpokemon <dragoran,lapras,icognito>`";
                         break;
                     case Locations:
-                        str += "`!addpokemon lapras <belconnen,gungahlin>`";
+                        str += "`!addpokemon lapras <braunschweig,peine>`";
                         break;
 
                 }
@@ -63,14 +63,14 @@ public enum InputError
             }
             case MissingRequiredArg: {
                 final HashSet<ArgType> requiredArgs = userCommand.novaBot.commands.get((String) userCommand.getArg(0).getParams()[0]).getRequiredArgTypes();
-                final String           str          = "For that command you must specify one or more " + ArgType.setToString(requiredArgs);
+                final String           str          = "Für diesen Befehl musst du eins oder mehrere angeben " + ArgType.setToString(requiredArgs);
                 return str + "\n\n";
             }
             case MalformedArg: {
-                return "I couldn't recognise the following things:\n\n" + Argument.malformedToString(userCommand.getMalformedArgs());
+                return "Ich konnte den Befehl nicht deuten:\n\n" + Argument.malformedToString(userCommand.getMalformedArgs());
             }
             case InvalidCommand: {
-                return "I don't recognise that command. Use the `!help` command for a list of my commands";
+                return "Ich haben den Befehl nicht erkannt, nutze `!help` für eine Liste meiner Befehle";
             }
             default:
                 return null;

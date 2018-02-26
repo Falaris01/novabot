@@ -30,12 +30,12 @@ public class Command {
     public String getHelpMessage() {
         StringBuilder str = new StringBuilder();
 
-        str.append("Valid argument types:\n\n");
+        str.append("Mögliche Filter:\n\n");
         for (ArgType validArgType : validArgTypes) {
             if(validArgType == CommandStr) continue;
             str.append(String.format("  %s%n",(validArgType)));
         }
-        str.append("\nValid argument combinations:\n\n");
+        str.append("\nMögliche Kombinationen:\n\n");
         for (TreeSet<ArgType> validArgCombination : validArgCombinations) {
             str.append(String.format("  %s%n",(argCombinationToString(validArgCombination))));
         }
@@ -46,7 +46,7 @@ public class Command {
         StringBuilder str = new StringBuilder();
 
         if (validArgCombination.size() == 1 && validArgCombination.contains(CommandStr)){
-            str.append("nothing");
+            str.append("nichts");
         }else{
             int i = 0;
             for (ArgType argType : validArgCombination) {
