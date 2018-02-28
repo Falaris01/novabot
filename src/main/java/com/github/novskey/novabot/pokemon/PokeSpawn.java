@@ -26,7 +26,7 @@ public class PokeSpawn extends Spawn
     private static final DecimalFormat df;
 
     static {
-        (df = new DecimalFormat("#.##")).setRoundingMode(RoundingMode.CEILING);
+        (df = new DecimalFormat("#.#")).setRoundingMode(RoundingMode.CEILING);
 
     }
 
@@ -106,6 +106,8 @@ public class PokeSpawn extends Spawn
             this.iv = null;
             getProperties().put("iv","unkn");
         }
+
+        getProperties().put("role", getPercRole());
 
         this.setMove_1(move1);
         getProperties().put("quick_move", (move1 == null) ? "unkn" : Pokemon.moveName(move1));
@@ -328,6 +330,19 @@ public class PokeSpawn extends Spawn
             return "\u26b2";
         }
         return "?";
+    }
+
+    private String getPercRole() {
+        if(iv < 94)
+            return "";
+        if(iv < 97)
+            return "@&392802481576345610";
+        if(iv < 100)
+            return "@&392802552686837761";
+        if(iv == 100)
+            return "@&352949348633542658";
+
+        return "";
     }
 
     private String getHeight() {

@@ -82,7 +82,7 @@ public class Location {
         }
         for (int i = 0; i < locations.length; ++i) {
             if (i == locations.length - 1) {
-                str.append("and ").append(locations[i].toWords());
+                str.append("und ").append(locations[i].toWords());
             } else {
                 str.append((i == locations.length - 2) ? (locations[i].toWords() + " ") : (locations[i].toWords() + ", "));
             }
@@ -98,7 +98,7 @@ public class Location {
             case Geofence:
                 return GeofenceIdentifier.listToString(this.geofenceIdentifiers);
             case All:
-                return "all";
+                return "allen Gebieten";
         }
 
         return null;

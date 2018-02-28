@@ -159,13 +159,13 @@ public class Pokemon {
     }
 
     public static String getIcon(final int id, Integer form) {
-        String url = "https://bitbucket.org/anzmap/sprites/raw/HEAD/";
+        String url = "https://raw.githubusercontent.com/CalamityJames/PokeAlarm/master/icons/";
         if (form != null && form != 0){
             url = url +  id + "-" + form;
         } else {
             url += id;
         }
-        return url + ".png?4";
+        return url + ".png";
     }
 
     public Location getLocation() {
@@ -351,7 +351,7 @@ public class Pokemon {
         }
         for (int i = 0; i < pokemon.length; ++i) {
             if (i == pokemon.length - 1) {
-                str.append("and ").append(pokemon[i].name);
+                str.append("und ").append(pokemon[i].name);
             } else {
                 str.append((i == pokemon.length - 2) ? (pokemon[i].name + " ") : (pokemon[i].name + ", "));
             }

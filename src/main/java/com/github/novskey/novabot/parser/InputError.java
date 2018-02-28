@@ -36,7 +36,7 @@ public enum InputError
             }
             case DuplicateArgs: {
                 final ArgType duplicateType = Argument.getDuplicateArg(userCommand.getArgs());
-                String str = "You specified multiple " + duplicateType;
+                String str = "Du hast mehrere angaben gemacht " + duplicateType;
                 if (duplicateType == ArgType.Float || duplicateType == ArgType.Int || duplicateType == ArgType.IV) {
                     return str;
                 }

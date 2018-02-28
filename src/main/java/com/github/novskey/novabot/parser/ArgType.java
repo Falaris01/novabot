@@ -74,7 +74,7 @@ public enum ArgType
         }
         for (int i = 0; i < argsArray.length; ++i) {
             if (i == argsArray.length - 1) {
-                str.append("and ").append(argsArray[i].toString());
+                str.append("und ").append(argsArray[i].toString());
             }
             else {
                 str.append((i == argsArray.length - 2) ? (argsArray[i].toString() + " ") : (argsArray[i].toString() + ", "));

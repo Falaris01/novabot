@@ -53,7 +53,7 @@ public class Raid {
         }
         for (int i = 0; i < uniqueNames.size(); ++i) {
             if (uniqueNames.size() > 1 && i == uniqueNames.size() - 1) {
-                str.append("and ").append(uniqueNames.get(i));
+                str.append("und ").append(uniqueNames.get(i));
             } else {
                 str.append((uniqueNames.size() == 1 || i == raids.length - 2) ? (uniqueNames.get(i) + " ") : (uniqueNames.get(i) + ", "));
             }
@@ -76,7 +76,7 @@ public class Raid {
             if(i != 0){
                 str.append(", ");
                 if (i == uniqueRaids.size() - 1){
-                    str.append("and ");
+                    str.append("und ");
                 }
             }
             if (raid.bossId != 0) {
